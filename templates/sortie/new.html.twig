@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Sortie{% endblock %}
+
+{% block body %}
+    <h1 style="color: #0c5460">Create new Sortie</h1>
+
+
+    {{ include('sortie/_form.html.twig')  }}
+
+    <a href="{{ path('sortie_index') }}" style="color: black">back to list</a>
+{% endblock %}

@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Participant index{% endblock %}
+
+{% block body %}
+    <h1 style="color: #0c5460">Participant</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>FullName</th>
+                <th>Email</th>
+                <th>PhoneNumber</th>
+                <th>IdSortie</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for participant in participants %}
+            <tr>
+                <td>{{ participant.id }}</td>
+                <td>{{ participant.FullName }}</td>
+                <td>{{ participant.Email }}</td>
+                <td>{{ participant.PhoneNumber }}</td>
+                <td>{{ participant.idSortie }}</td>
+                <td>
+                    <a href="{{ path('participant_show', {'id': participant.id}) }}" class="fas fa-info-circle"></a>
+                    <a style="color: white">a</a>
+                    <a href="{{ path('participant_edit', {'id': participant.id}) }}"  class="fas fa-edit"></a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('participant_new') }}" style="color: black">Create new</a>
+{% endblock %}
